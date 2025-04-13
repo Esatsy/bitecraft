@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BiteCraft - Esat Yıldırım</title>
+
+  <!-- Montserrat Font (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ana kapsayıcı -->
+  <div class="container">
+    <!-- Üst kısım (Logo + Navbar + Toggle) -->
+    <header class="header">
+      <div class="logo">BiteCraft</div>
+      <nav class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I have been working in the software development field for 4 years and I am currently employed as a full stack developer. I graduated from Ufuk University with a degree in Computer Programming. However, I have continued to improve my skills independently of my education and I still do. I have experience working with technologies such as React.js, HTML, CSS, JavaScript, Node.js, ASP.NET, and SQL. I’ve also taken on roles like team lead and scrum master in various projects. I’m used to working in teams, tracking projects with Trello, and I’m a fast learner who stays up-to-date with modern technologies.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Coming Soon</h3>
+        <p>Used Skills: React.js, Node.js</p>
+        <div class="project-links">
+          <a href="#"><img class="github-icon" src="icons/github-white.svg" alt="GitHub" /></a>
+          <a href="#"><img src="icons/figma.svg" alt="Figma" /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/mgvadbnd"
+        method="POST"
+      >
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      &copy; <span id="year"></span> Esat Yıldırım. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button id="scrollUpBtn" title="Go to top">⬆</button>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

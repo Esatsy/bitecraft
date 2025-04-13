@@ -1,0 +1,248 @@
+/***************************************************
+ * Renk Değişkenleri
+ **************************************************/
+ :root {
+    /* DARK MODE COLORS */
+    --dark-bg: #121212;
+    --dark-text: #E0E0E0;
+    --dark-accent1: #444444; /* Navbar & footer */
+    --dark-accent2: #888888; /* Project kartları & buton */
+    --dark-accent3: #B0B0B0; /* İkinci accent ihtiyacı */
+  
+    /* LIGHT MODE COLORS (dark modun tam tersi) */
+    --light-bg: #F8F8F8;
+    --light-text: #434343;
+    --light-accent1: #F7C873; /* Navbar & footer */
+    --light-accent2: #FAEBCD; /* Project kartları & buton */
+    --light-accent3: #B0B0B0; /* İkinci accent ihtiyacı */
+  
+    /* Font size */
+    --base-font-size: 18px;
+    --h1-size: 3rem;
+    --h2-size: 2.25rem;
+    --p-size: 1.125rem;
+  }
+  
+  /***************************************************
+   * GENEL STİLLER
+   **************************************************/
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: var(--base-font-size);
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Light mode aktif olduğunda */
+  body.light-mode {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+  }
+  
+  h1 {
+    font-size: var(--h1-size);
+    margin: 0;
+  }
+  h2 {
+    font-size: var(--h2-size);
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: var(--p-size);
+    line-height: 1.6;
+  }
+  
+  /***************************************************
+   * KAPSAYICI (CONTAINER)
+   **************************************************/
+  .container {
+    padding: 2rem;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  /***************************************************
+   * HEADER + NAVBAR
+   **************************************************/
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--dark-accent1); /* Dark mode navbar & footer */
+  }
+  body.light-mode .header {
+    background-color: var(--light-accent1);
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Navbar Linkleri */
+  .navbar a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+  
+  /* Toggle Butonu (Dark/Light) */
+  #toggleMode {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: inherit;
+  }
+  
+  /***************************************************
+   * SECTIONS
+   **************************************************/
+  section {
+    margin-bottom: 3rem;
+  }
+  
+  /***************************************************
+   * PROJECT KARTLARI
+   **************************************************/
+  .project {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background-color: var(--dark-accent2);
+    transition: transform 0.3s, background-color 0.3s;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  body.light-mode .project {
+    background-color: var(--light-accent2);
+    color: var(--light-text);
+  }
+  .project:hover {
+    transform: scale(1.02);
+  }
+  .project-links img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    transition: transform 0.2s;
+  }
+  .project-links img:hover {
+    transform: scale(1.1);
+  }
+  
+  /***************************************************
+   * CONTACT FORM
+   **************************************************/
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: inherit;
+  }
+  
+  form button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
+    /* Dark mod buton => accent2 */
+    background-color: var(--dark-accent2);
+    color: #fff;
+  }
+  body.light-mode form button {
+    background-color: var(--light-accent2);
+    color: var(--light-text);
+  }
+  form button:hover {
+    transform: scale(1.05);
+  }
+  
+  /***************************************************
+   * SCROLL TO TOP BUTTON
+   **************************************************/
+  #scrollUpBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    font-size: 1.5rem;
+    background-color: var(--dark-accent2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  body.light-mode #scrollUpBtn {
+    background-color: var(--light-accent2);
+    color: var(--light-text);
+  }
+  #scrollUpBtn:hover {
+    transform: scale(1.1);
+  }
+  
+  /***************************************************
+   * FOOTER
+   **************************************************/
+  footer {
+    text-align: center;
+    opacity: 0.9;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--dark-accent1);
+    color: var(--dark-text);
+  }
+  
+  body.light-mode footer {
+    background-color: var(--light-accent1);
+    color: var(--light-text);
+  }
+  
+  /***************************************************
+   * RESPONSIVE (Mobil Görünüm)
+   **************************************************/
+  @media (max-width: 700px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .navbar {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    #toggleMode {
+      margin-left: 0;
+      align-self: flex-end;
+    }
+  }
