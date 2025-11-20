@@ -1,0 +1,42 @@
+/* Emergency Visibility Fix - Ensures all content is visible */
+
+/* Force all elements to be visible by default */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Only animate when AOS is initialized */
+html.aos-initialized [data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform !important;
+}
+
+html.aos-initialized [data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Ensure hero section is always visible */
+.hero-title,
+.hero-subtitle,
+.hero-cta {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure all cards are visible */
+.skill-card,
+.glass-card,
+.project-card,
+.stat-card,
+.timeline-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure images are visible */
+img {
+  opacity: 1 !important;
+}
+

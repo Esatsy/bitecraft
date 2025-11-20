@@ -121,12 +121,24 @@ function initParticles() {
 function initAOS() {
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       easing: 'ease-out-cubic',
-      once: true,
-      offset: 100,
-      delay: 0
+      once: false, // Changed to false so animations can repeat
+      offset: 50,
+      delay: 0,
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate'
     });
+    
+    // Force refresh after init
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+  } else {
+    // Fallback: Show all AOS elements immediately if library not loaded
+    console.warn('AOS library not loaded, showing all elements');
   }
 }
 

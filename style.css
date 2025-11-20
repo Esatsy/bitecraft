@@ -256,6 +256,13 @@ body.light-mode .glass-card {
    ============================================ */
 .hero-content {
   animation: fadeIn 1s ease;
+  opacity: 1 !important; /* Ensure hero is always visible */
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-cta {
+  opacity: 1 !important; /* Ensure hero elements are always visible */
 }
 
 @keyframes fadeIn {
@@ -726,8 +733,10 @@ body.light-mode .project-card {
   filter: brightness(1);
 }
 
-.project-image.lazy-image:not(.loaded) {
-  opacity: 0;
+.project-image {
+  opacity: 1; /* Always visible */
+  min-height: 300px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
 }
 
 .project-image.lazy-image.loaded {
