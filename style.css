@@ -613,17 +613,23 @@ body.light-mode .skill-name {
 
 .timeline-content {
   width: calc(50% - 40px);
-  padding: 0;
+  padding: 0; /* Keep 0 for outer wrapper, inner glass-card has padding */
 }
 
 .timeline-content .glass-card {
   background: rgba(15, 23, 42, 0.95);
-  padding: 2rem !important; /* Ensure proper padding */
+  padding: 3rem !important; /* Much more spacious */
 }
 
 body.light-mode .timeline-content .glass-card {
   background: rgba(255, 255, 255, 0.95);
-  padding: 2rem !important;
+  padding: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .timeline-content .glass-card {
+    padding: 2rem !important;
+  }
 }
 
 .timeline-date {
@@ -641,10 +647,10 @@ body.light-mode .timeline-content .glass-card {
 .timeline-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  margin-top: 0.5rem;
+  margin: 1rem 0;
+  padding: 0;
   color: #f1f5f9;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 body.light-mode .timeline-title {
@@ -654,7 +660,8 @@ body.light-mode .timeline-title {
 .timeline-description {
   color: #cbd5e1;
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin: 1rem 0 1.5rem 0;
+  padding: 0;
   font-size: 1rem;
 }
 
@@ -666,7 +673,8 @@ body.light-mode .timeline-description {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
 }
 
 .tag {
