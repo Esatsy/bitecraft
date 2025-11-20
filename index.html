@@ -414,9 +414,16 @@
                 alt="Tarhana Kazanı Project Screenshot"
                 class="project-image"
                 loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.querySelector('.project-image-placeholder').style.display='flex';"
               />
+              <!-- Placeholder hidden by default, shown on error -->
+              <div class="project-image-placeholder" style="display: none;">
+                <div class="project-image-icon">🍲</div>
+              </div>
+              <!-- Overlay for hover effect -->
               <div class="project-image-overlay">
                 <div class="project-image-icon">🍲</div>
+                <div class="mt-4 font-bold text-white text-xl">View Details</div>
               </div>
               <div class="project-live-badge">LIVE</div>
             </div>
@@ -451,9 +458,16 @@
                 alt="Remax Para Fai Project Screenshot"
                 class="project-image"
                 loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.querySelector('.project-image-placeholder').style.display='flex';"
               />
+              <!-- Placeholder hidden by default, shown on error -->
+              <div class="project-image-placeholder" style="display: none;">
+                <div class="project-image-icon">🏠</div>
+              </div>
+              <!-- Overlay for hover effect -->
               <div class="project-image-overlay">
                 <div class="project-image-icon">🏠</div>
+                <div class="mt-4 font-bold text-white text-xl">View Details</div>
               </div>
               <div class="project-live-badge">LIVE</div>
             </div>
