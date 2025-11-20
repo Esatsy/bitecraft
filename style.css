@@ -616,21 +616,31 @@ body.light-mode .skill-name {
   padding: 0; /* Keep 0 for outer wrapper, inner glass-card has padding */
 }
 
+/* New padding wrapper */
+.timeline-inner-padding {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .timeline-inner-padding {
+    padding: 2rem;
+  }
+}
+
+/* Reset padding on glass-card because inner wrapper handles it */
 .timeline-content .glass-card {
+  padding: 0 !important;
+  overflow: hidden; /* Ensures content doesn't spill out */
   background: rgba(15, 23, 42, 0.95);
-  padding: 2.5rem 3rem !important; /* Vertical 2.5rem, Horizontal 3rem */
-  box-sizing: border-box !important;
 }
 
 body.light-mode .timeline-content .glass-card {
   background: rgba(255, 255, 255, 0.95);
-  padding: 2.5rem 3rem !important;
-}
-
-@media (max-width: 768px) {
-  .timeline-content .glass-card {
-    padding: 1.5rem 2rem !important;
-  }
+  padding: 0 !important;
 }
 
 .timeline-date {
