@@ -1,79 +1,573 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BiteCraft - Esat Yıldırım</title>
+  <meta name="description" content="Esat Yıldırım - Full Stack Developer with 4+ years of experience. Specializing in React, Node.js, ASP.NET, and modern web technologies.">
+  <title>BiteCraft - Esat Yıldırım | Full Stack Developer</title>
 
-  <!-- Montserrat Font (Google Fonts) -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+  <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#06b6d4',
+            'secondary': '#8b5cf6',
+            'accent': '#f59e0b',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- AOS - Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Ana kapsayıcı -->
-  <div class="container">
-    <!-- Üst kısım (Logo + Navbar + Toggle) -->
-    <header class="header">
-      <div class="logo">BiteCraft</div>
-      <nav class="navbar">
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button id="toggleMode" aria-label="Toggle dark mode">🌙</button>
-    </header>
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden">
+  
+  <!-- Particles Background -->
+  <div id="particles-js" class="fixed inset-0 z-0"></div>
 
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I have been working in the software development field for 4 years and I am currently employed as a full stack developer. I graduated from Ufuk University with a degree in Computer Programming. However, I have continued to improve my skills independently of my education and I still do. I have experience working with technologies such as React.js, HTML, CSS, JavaScript, Node.js, ASP.NET, and SQL. I’ve also taken on roles like team lead and scrum master in various projects. I’m used to working in teams, tracking projects with Trello, and I’m a fast learner who stays up-to-date with modern technologies.
-      </p>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="#home" class="text-2xl font-bold gradient-text">BiteCraft</a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="themeToggle" class="theme-toggle mr-4" aria-label="Toggle theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button id="mobileMenuBtn" class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Skills</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="relative z-10">
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 gradient-bg"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="hero-content">
+          <h1 class="hero-title opacity-0">
+            <span class="block text-xl sm:text-2xl md:text-3xl font-medium mb-4 gradient-text">Hi, I'm</span>
+            <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4">Esat Yıldırım</span>
+            <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text-alt">Full Stack Developer</span>
+          </h1>
+          <p class="hero-subtitle opacity-0 mt-8 text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            Crafting exceptional digital experiences with modern web technologies
+          </p>
+          <div class="hero-cta opacity-0 mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#projects" class="btn-primary">
+              View My Work
+              <svg class="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              Get In Touch
+              <svg class="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+        <div class="mouse"></div>
+      </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Coming Soon</h3>
-        <p>Used Skills: React.js, Node.js</p>
-        <div class="project-links">
-          <a href="#"><img class="github-icon" src="icons/github-white.svg" alt="GitHub" /></a>
-          <a href="#"><img src="icons/figma.svg" alt="Figma" /></a>
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="max-w-5xl mx-auto">
+          <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+              <div class="md:col-span-1 flex justify-center">
+                <div class="profile-image-wrapper">
+                  <div class="profile-image-gradient"></div>
+                  <img src="https://ui-avatars.com/api/?name=Esat+Yildirim&size=400&background=06b6d4&color=fff&bold=true&format=svg" alt="Esat Yıldırım" class="profile-image">
+                </div>
+              </div>
+              <div class="md:col-span-2">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                  I have been working in the software development field for <span class="text-primary font-semibold">4 years</span> and I am currently employed as a <span class="text-secondary font-semibold">Full Stack Developer</span>. I graduated from Ufuk University with a degree in Computer Programming.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                  However, I have continued to improve my skills independently of my education and I still do. I have experience working with technologies such as <span class="text-primary font-semibold">React.js, HTML, CSS, JavaScript, Node.js, ASP.NET, and SQL</span>.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                  I've also taken on roles like <span class="text-accent font-semibold">Team Lead and Scrum Master</span> in various projects. I'm used to working in teams, tracking projects with Trello, and I'm a fast learner who stays up-to-date with modern technologies.
+                </p>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+                  <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Exp</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Commitment</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Learning</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form
-        id="contactForm"
-        action="https://formspree.io/f/mgvadbnd"
-        method="POST"
-      >
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-gradient-to-b from-transparent to-gray-900/50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title" data-aos="fade-up">Skills & Technologies</h2>
+        <div class="max-w-6xl mx-auto">
+          
+          <!-- Frontend -->
+          <div class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-2xl font-bold mb-6 text-primary">Frontend Development</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div class="skill-card">
+                <div class="skill-icon">⚛️</div>
+                <div class="skill-name">React.js</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">📄</div>
+                <div class="skill-name">HTML5</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <div class="skill-name">CSS3</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <div class="skill-name">JavaScript</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🎭</div>
+                <div class="skill-name">TypeScript</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🎪</div>
+                <div class="skill-name">Tailwind CSS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="mb-12" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-2xl font-bold mb-6 text-secondary">Backend Development</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div class="skill-card">
+                <div class="skill-icon">🟢</div>
+                <div class="skill-name">Node.js</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🔷</div>
+                <div class="skill-name">ASP.NET</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🗄️</div>
+                <div class="skill-name">SQL</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🍃</div>
+                <div class="skill-name">MongoDB</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🔥</div>
+                <div class="skill-name">Express.js</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🔐</div>
+                <div class="skill-name">REST APIs</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Others -->
+          <div class="mb-12" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-2xl font-bold mb-6 text-accent">Tools & Methodologies</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div class="skill-card">
+                <div class="skill-icon">📋</div>
+                <div class="skill-name">Trello</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🔄</div>
+                <div class="skill-name">Git</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🎯</div>
+                <div class="skill-name">Scrum</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">👥</div>
+                <div class="skill-name">Team Lead</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🎓</div>
+                <div class="skill-name">GOIT Graduate</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-icon">🚀</div>
+                <div class="skill-name">Agile</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certification Highlight -->
+          <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary mb-4">
+              <span class="text-3xl">🎓</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">GOIT Full Stack Developer</h3>
+            <p class="text-gray-300">Completed comprehensive full-stack development course with 10+ hands-on projects</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      &copy; <span id="year"></span> Esat Yıldırım. All rights reserved.
-    </footer>
-  </div>
+    <!-- Experience Timeline -->
+    <section id="experience" class="section-padding">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title" data-aos="fade-up">Experience & Journey</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="timeline">
+            
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-date">Present</div>
+                <h3 class="timeline-title">Full Stack Developer</h3>
+                <p class="timeline-description">
+                  Currently working as a Full Stack Developer, building modern web applications with React, Node.js, and ASP.NET. Leading development teams and managing projects using Agile methodologies.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">React.js</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">ASP.NET</span>
+                  <span class="tag">Team Lead</span>
+                </div>
+              </div>
+            </div>
 
-  <!-- Scroll to top button -->
-  <button id="scrollUpBtn" title="Go to top">⬆</button>
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-date">2023</div>
+                <h3 class="timeline-title">GOIT Full Stack Developer Program</h3>
+                <p class="timeline-description">
+                  Completed intensive full-stack development bootcamp, building 10+ real-world projects. Gained hands-on experience with modern web technologies and best practices.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">Full Stack</span>
+                  <span class="tag">Projects</span>
+                  <span class="tag">Certification</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-date">2020 - Present</div>
+                <h3 class="timeline-title">Team Lead & Scrum Master</h3>
+                <p class="timeline-description">
+                  Taken on leadership roles in multiple projects, managing teams, conducting sprint planning, and ensuring successful project delivery using Scrum methodology.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">Leadership</span>
+                  <span class="tag">Scrum</span>
+                  <span class="tag">Project Management</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-date">2019</div>
+                <h3 class="timeline-title">Started Software Development Journey</h3>
+                <p class="timeline-description">
+                  Began my professional career in software development with 4+ years of continuous learning and growth in the field.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">Career Start</span>
+                  <span class="tag">Learning</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-date">Graduated</div>
+                <h3 class="timeline-title">Ufuk University</h3>
+                <p class="timeline-description">
+                  Graduated with a degree in Computer Programming, building a strong foundation in software development principles.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">Computer Programming</span>
+                  <span class="tag">Education</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-gradient-to-b from-gray-900/50 to-transparent">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+        <div class="max-w-6xl mx-auto">
+          
+          <!-- Project 1 - Tarhana Kazanı -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-image-wrapper">
+              <div class="project-image-placeholder">
+                <div class="project-image-icon">🍲</div>
+                <div class="project-image-text">Tarhana Kazanı</div>
+                <div class="project-live-badge">LIVE</div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Tarhana Kazanı</h3>
+              <p class="project-description">
+                A modern e-commerce platform for traditional Turkish cuisine products. Features include product catalog, shopping cart, order management, and secure payment integration.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">E-commerce</span>
+                <span class="tag">Payment Gateway</span>
+              </div>
+              <div class="project-links">
+                <a href="https://tarhanakazani.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 - Remax Para Fai -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-image-wrapper">
+              <div class="project-image-placeholder">
+                <div class="project-image-icon">🏠</div>
+                <div class="project-image-text">Remax Para Fai</div>
+                <div class="project-live-badge">LIVE</div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Remax Para Fai</h3>
+              <p class="project-description">
+                Real estate platform for property listings and management. Includes advanced search filters, property galleries, virtual tours, and agent contact system.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Real Estate</span>
+                <span class="tag">CMS</span>
+                <span class="tag">Maps Integration</span>
+              </div>
+              <div class="project-links">
+                <a href="https://remaxparafai.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 - GOIT Projects -->
+          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-image-wrapper">
+              <div class="project-image-placeholder">
+                <div class="project-image-icon">🎓</div>
+                <div class="project-image-text">GOIT Projects</div>
+                <div class="project-count-badge">10+</div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">GOIT Full Stack Projects</h3>
+              <p class="project-description">
+                Completed 10+ comprehensive full-stack projects during GOIT bootcamp, covering various aspects of modern web development including SPAs, REST APIs, databases, authentication, and deployment.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">Full Stack</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <div class="max-w-3xl mx-auto">
+          <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-center text-lg text-gray-300 mb-8">
+              Have a project in mind or want to discuss opportunities? Feel free to reach out!
+            </p>
+            <form id="contactForm" action="https://formspree.io/f/mgvadbnd" method="POST" class="contact-form">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" required class="form-input" placeholder="John Doe">
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="john@example.com">
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" required rows="5" class="form-input" placeholder="Tell me about your project..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loader hidden">
+                  <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </span>
+              </button>
+            </form>
+            <div id="formMessage" class="hidden mt-4 p-4 rounded-lg text-center"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 py-8 border-t border-gray-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-gray-400 text-sm mb-4 md:mb-0">
+          &copy; <span id="year"></span> Esat Yıldırım. All rights reserved.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#home" class="text-gray-400 hover:text-primary transition-colors">Home</a>
+          <a href="#about" class="text-gray-400 hover:text-primary transition-colors">About</a>
+          <a href="#projects" class="text-gray-400 hover:text-primary transition-colors">Projects</a>
+          <a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Vanilla Tilt for 3D Effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
   <!-- Custom JS -->
   <script src="script.js"></script>
