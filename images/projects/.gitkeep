@@ -1,0 +1,23 @@
+# Project Screenshots
+
+Place your project screenshots here with the following names:
+- tarhana-kazani.jpg
+- remax-parafai.jpg
+
+These will be used as fallback images if the screenshot API fails to load.
+
+## Recommended Image Specifications:
+- Format: JPG or PNG
+- Dimensions: 1024x768 or 1920x1080
+- File size: Under 500KB (optimized)
+- Quality: High quality, clear screenshot of the project homepage
+
+## How to Add Screenshots:
+1. Take a screenshot of your live project
+2. Optimize the image (use tools like TinyPNG, ImageOptim, or Squoosh)
+3. Rename it according to the project (e.g., tarhana-kazani.jpg)
+4. Place it in this directory
+5. Commit and push to GitHub
+
+The website will automatically use these images if available.
+

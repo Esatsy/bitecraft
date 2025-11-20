@@ -1,186 +1,235 @@
 # 🚀 BiteCraft - Professional Portfolio
 
-A modern, stunning portfolio website for Esat Yıldırım - Full Stack Developer.
+A modern, stunning portfolio website for Esat Yıldırım - Full Stack Developer with advanced features, lazy loading, and sophisticated animations.
 
-## ✨ Features
+## ✨ Key Features
 
-- **Modern Design**: Glassmorphism effects with vibrant gradient accents
-- **Smooth Animations**: GSAP-powered animations with scroll triggers
-- **Interactive Elements**: 3D tilt effects, particle background, and smooth transitions
-- **Fully Responsive**: Mobile-first design that works perfectly on all devices
-- **Dark/Light Mode**: Toggle between themes with persistent preference
-- **Performance Optimized**: Fast loading times and smooth interactions
-- **Accessibility**: Semantic HTML with proper ARIA labels
+### Design & UI
+- **Modern Glassmorphism**: Beautiful glass-effect cards with backdrop blur
+- **Dark/Light Mode**: Seamless theme switching with localStorage persistence
+- **Gradient Animations**: Dynamic color gradients throughout the site
+- **3D Tilt Effects**: Interactive hover effects using Vanilla Tilt
+- **Fully Responsive**: Mobile-first design, perfect on all devices
+
+### Performance & Optimization
+- **Lazy Loading Images**: Images load only when needed using Intersection Observer
+- **Screenshot API Integration**: Automatic project screenshots with fallback system
+- **Optimized Assets**: Minimal bundle size, CDN-based resources
+- **Efficient Animations**: Hardware-accelerated GSAP animations
+
+### Advanced Features
+- **Real-time Form Validation**: Instant feedback on contact form
+- **Social Media Integration**: Connected profiles in enhanced footer
+- **Project Showcase**: Dynamic cards with live preview and GitHub links
+- **Interactive Timeline**: Animated experience timeline
+- **Particle Background**: Interactive particle.js effects
 
 ## 🛠️ Tech Stack
 
+### Core
 - **HTML5**: Semantic markup
-- **CSS3**: Custom properties, glassmorphism, gradients
-- **Tailwind CSS**: Utility-first styling
-- **JavaScript (Vanilla)**: No framework dependencies
-- **GSAP**: Professional animations and scroll triggers
+- **Tailwind CSS**: Utility-first styling (CDN)
+- **Vanilla JavaScript**: Pure JS, no framework overhead
+
+### Libraries
+- **GSAP**: Professional animations with ScrollTrigger
 - **Particles.js**: Interactive background effects
-- **AOS**: Scroll animations
+- **AOS**: Scroll-triggered animations
 - **Vanilla Tilt**: 3D hover effects
+- **Formspree**: Contact form backend
 
 ## 📁 Project Structure
 
 ```
 bitecraft/
-├── index.html          # Main HTML file
-├── style.css           # Custom styles and glassmorphism
-├── script.js           # JavaScript functionality
-├── icons/              # SVG icons
+├── index.html                    # Main HTML with all sections
+├── style.css                     # Glassmorphism & custom styles
+├── script.js                     # Advanced JS functionality
+├── icons/                        # SVG icons
 │   ├── figma.svg
 │   ├── github-dark.svg
 │   └── github-white.svg
-├── CNAME               # Custom domain configuration
-└── README.md           # This file
+├── images/                       # Project images
+│   └── projects/                 # Screenshots (fallback)
+│       └── .gitkeep              # Instructions
+├── README.md                     # This file
+├── DEPLOYMENT_GUIDE.md          # Deployment instructions
+├── FEATURES.md                   # Detailed features
+├── SCREENSHOTS_API_SETUP.md     # Screenshot configuration
+├── GET_STARTED.md               # Quick start
+└── TESTING_CHECKLIST.md         # Testing guide
 ```
 
-## 🎨 Sections
-
-1. **Hero Section**: Full viewport introduction with animated text and particle background
-2. **About Me**: Personal introduction with statistics and profile
-3. **Skills & Technologies**: Organized skill showcase by category
-4. **Experience Timeline**: Career journey with animated reveals
-5. **Projects**: Featured projects with live links and descriptions
-6. **Contact**: Functional contact form with Formspree integration
-7. **Footer**: Simple, elegant footer with navigation
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Local Development
 
-1. Clone the repository:
+1. **Clone:**
 ```bash
 git clone https://github.com/yourusername/bitecraft.git
 cd bitecraft
 ```
 
-2. Open `index.html` in your browser or use a local server:
+2. **Run locally:**
 ```bash
-# Using Python
+# Python
 python -m http.server 8000
 
-# Using Node.js
-npx serve
+# Node.js
+npx http-server
 
-# Using PHP
+# PHP
 php -S localhost:8000
 ```
 
-3. Visit `http://localhost:8000` in your browser
+3. **Open:** `http://localhost:8000`
 
-### Deployment
+### Adding Screenshots
 
-This site is designed to work seamlessly with:
-- **GitHub Pages** (recommended)
-- **Netlify**
-- **Vercel**
-- Any static hosting service
+Quick setup:
+1. Add images to `images/projects/`
+2. Name: `tarhana-kazani.jpg`, `remax-parafai.jpg`
+3. Optimize to < 500KB
 
-#### GitHub Pages Deployment
+See [SCREENSHOTS_API_SETUP.md](SCREENSHOTS_API_SETUP.md) for API setup.
 
-1. Push your code to GitHub
-2. Go to repository Settings → Pages
-3. Select branch (usually `main`) and root directory
-4. Your site will be live at `https://yourusername.github.io/bitecraft/`
+## 🌐 Deployment
 
-## 🎯 Customization
+### GitHub Pages
 
-### Colors
+1. **Push:**
+```bash
+git add .
+git commit -m "Deploy"
+git push origin main
+```
 
-Edit CSS variables in `style.css`:
+2. **Enable Pages:**
+   - Settings → Pages → Select `main` branch
+
+3. **Live at:** `https://yourusername.github.io/bitecraft`
+
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for custom domains.
+
+## ✨ Customization
+
+### 1. Personal Info
+Edit `index.html` sections:
+- Hero name/title
+- About content
+- Skills & tech
+- Projects
+- Social links
+
+### 2. Colors
+`style.css`:
 ```css
 :root {
   --color-primary: #06b6d4;    /* Cyan */
   --color-secondary: #8b5cf6;  /* Purple */
-  --color-accent: #f59e0b;     /* Orange */
+  --color-accent: #f59e0b;     /* Amber */
 }
 ```
 
-### Content
-
-- **Personal Info**: Update text in `index.html`
-- **Projects**: Add or modify project cards in the Projects section
-- **Skills**: Add/remove skills in the Skills section
-- **Contact Form**: Already integrated with Formspree
-
-### Adding Your Projects
-
-Replace placeholder content in the Projects section:
+### 3. Contact Form
+1. Sign up: [formspree.io](https://formspree.io)
+2. Get form ID
+3. Update `index.html`:
 ```html
-<div class="project-card">
-  <!-- Add your project image -->
-  <!-- Update title, description, tags, and links -->
-</div>
+<form action="https://formspree.io/f/YOUR_ID">
 ```
 
-## 🔧 Configuration
+### 4. Social Links
+Update footer in `index.html`:
+- GitHub: `https://github.com/esatyildirim`
+- LinkedIn: `https://linkedin.com/in/esatyildirim`
+- Twitter: `https://twitter.com/esatyildirim`
+- Email: `esat@bitecraft.dev`
 
-### Contact Form
+## 🎨 Design System
 
-The form uses Formspree. To use your own:
-1. Sign up at [formspree.io](https://formspree.io)
-2. Create a new form
-3. Replace the form action URL in `index.html`:
-```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
+### Colors
+- **Dark**: `#0f172a` bg, `#f1f5f9` text
+- **Light**: `#f8fafc` bg, `#0f172a` text
+- **Accents**: Cyan, Purple, Amber
 
-### Analytics (Optional)
+### Typography
+- **Font**: Inter (Google Fonts)
+- **Weights**: 400-800
 
-To add Google Analytics, insert this before `</head>`:
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-```
+### Effects
+- Glassmorphism: `backdrop-filter: blur(10px)`
+- Transitions: 0.3s ease
+- Shadows: Layered, colorful
 
-## 🎨 Design Philosophy
+## 🔧 Advanced Features
 
-This portfolio is designed to be:
-- **Professional**: Clean, modern design that showcases skills
-- **Engaging**: Purposeful animations that enhance UX
-- **Fast**: Optimized for performance
-- **Accessible**: Works for everyone
-- **Memorable**: Unique design that stands out
+### Lazy Loading
+- Intersection Observer API
+- Loading spinners
+- Fallback system
+- Automatic optimization
+
+### Form Validation
+- Real-time checking
+- Email format validation
+- Minimum length requirements
+- Animated error messages
+
+### Screenshot System
+1. **Primary**: Screenshot API
+2. **Secondary**: Manual images
+3. **Tertiary**: Animated placeholders
 
 ## 📱 Browser Support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+✅ Chrome • Firefox • Safari • Edge • Mobile
 
-## 🐛 Known Issues
+## 📚 Documentation
 
-None at the moment! If you find any, please report them.
+- [GET_STARTED.md](GET_STARTED.md) - Quick guide
+- [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) - Deploy instructions
+- [FEATURES.md](FEATURES.md) - Feature details
+- [SCREENSHOTS_API_SETUP.md](SCREENSHOTS_API_SETUP.md) - Screenshot config
+- [TESTING_CHECKLIST.md](TESTING_CHECKLIST.md) - Testing guide
+
+## 🐛 Troubleshooting
+
+### Images not loading
+- Check `images/projects/` exists
+- Verify filenames match HTML
+- Check browser console
+
+### Animations not working
+- Verify CDN scripts load
+- Check console for errors
+- Disable browser extensions
+
+### Form issues
+- Verify Formspree ID
+- Check network tab
+- Enable JavaScript
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License - Open source and free to use!
 
-## 👤 Contact
+## 🤝 Contributing
 
-**Esat Yıldırım**
-- Website: [www.bitecraft.dev](https://www.bitecraft.dev)
-- GitHub: [@yourusername](https://github.com/yourusername)
+1. Fork the project
+2. Create feature branch
+3. Commit changes
+4. Push and create Pull Request
 
-## 🙏 Acknowledgments
+## 📧 Contact
 
-- Design inspiration from modern portfolio trends
-- Icons and assets from various open-source projects
-- Animation libraries: GSAP, AOS, Particles.js, Vanilla Tilt
+- **Website**: [www.bitecraft.dev](https://www.bitecraft.dev)
+- **Email**: esat@bitecraft.dev
+- **GitHub**: [@esatyildirim](https://github.com/esatyildirim)
+- **LinkedIn**: [esatyildirim](https://linkedin.com/in/esatyildirim)
 
 ---
 
-Made with ❤️ by Esat Yıldırım
+**Made with 💙 by Esat Yıldırım**
 
+*Building exceptional digital experiences, one pixel at a time.*

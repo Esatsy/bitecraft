@@ -665,6 +665,72 @@ body.light-mode {
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
 }
 
+/* Real Project Images */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--transition-slow);
+  filter: brightness(0.9);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+.project-image.lazy-image:not(.loaded) {
+  opacity: 0;
+}
+
+.project-image.lazy-image.loaded {
+  opacity: 1;
+  animation: fadeInImage 0.8s ease;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Image Overlay */
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.8), rgba(139, 92, 246, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.project-card:hover .project-image-overlay {
+  opacity: 1;
+}
+
+.project-image-overlay .project-image-icon {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Placeholder for fallback */
 .project-image-placeholder {
   display: flex;
   flex-direction: column;
@@ -685,6 +751,63 @@ body.light-mode {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text-light);
+}
+
+/* GOIT Projects Grid Showcase */
+.project-image-gradient-bg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(6, 182, 212, 0.3) 0%,
+    rgba(139, 92, 246, 0.3) 50%,
+    rgba(245, 158, 11, 0.3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.project-grid-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mini-project {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: all var(--transition-normal);
+  animation: miniFloat 3s ease-in-out infinite;
+}
+
+.mini-project:nth-child(1) { animation-delay: 0s; }
+.mini-project:nth-child(2) { animation-delay: 0.2s; }
+.mini-project:nth-child(3) { animation-delay: 0.4s; }
+.mini-project:nth-child(4) { animation-delay: 0.6s; }
+.mini-project:nth-child(5) { animation-delay: 0.8s; }
+.mini-project:nth-child(6) { animation-delay: 1s; }
+
+@keyframes miniFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.project-card:hover .mini-project {
+  transform: scale(1.1) rotate(10deg);
+  border-color: var(--color-primary);
 }
 
 .project-live-badge,
@@ -972,6 +1095,164 @@ textarea.form-input {
 }
 
 /* ============================================
+   SOCIAL LINKS
+   ============================================ */
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--color-text-gray);
+  transition: all var(--transition-normal);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) rotate(360deg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 5px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Footer Enhancements */
+footer h3 {
+  color: var(--color-text-light);
+}
+
+footer a:not(.social-link) {
+  position: relative;
+  display: inline-block;
+}
+
+footer a:not(.social-link)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+footer a:not(.social-link):hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   FORM ENHANCEMENTS
+   ============================================ */
+.form-group {
+  position: relative;
+}
+
+.form-group.focused .form-label {
+  color: var(--color-primary);
+}
+
+.form-input.error {
+  border-color: #ef4444;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.form-error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.form-group.error .form-error-message {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Form Success Animation */
+.form-success-animation {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+}
+
+.form-success-animation.active {
+  display: block;
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981, #059669);
+  animation: checkmarkScale 0.5s ease;
+}
+
+@keyframes checkmarkScale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+.loading-spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--glass-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
    UTILITY CLASSES
    ============================================ */
 .text-gradient {
@@ -994,4 +1275,23 @@ button,
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/* Image Loading State */
+img[data-src] {
+  background: linear-gradient(90deg, 
+    rgba(6, 182, 212, 0.1) 0%, 
+    rgba(139, 92, 246, 0.1) 50%, 
+    rgba(6, 182, 212, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

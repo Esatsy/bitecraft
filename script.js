@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initTiltEffects();
   setCurrentYear();
   initSmoothScroll();
+  initLazyLoading();
+  initProjectImages();
+  initAdvancedFormValidation();
 });
 
 // ============================================
@@ -553,24 +556,228 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// PERFORMANCE: LAZY LOAD IMAGES (if any added later)
+// LAZY LOADING FOR PROJECT IMAGES
 // ============================================
-if ('IntersectionObserver' in window) {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.classList.add('loaded');
+function initLazyLoading() {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          loadProjectImage(img);
           observer.unobserve(img);
         }
+      });
+    }, {
+      rootMargin: '50px'
+    });
+    
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => imageObserver.observe(img));
+  } else {
+    // Fallback for browsers that don't support IntersectionObserver
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => loadProjectImage(img));
+  }
+}
+
+// ============================================
+// PROJECT IMAGE LOADING WITH FALLBACK
+// ============================================
+function loadProjectImage(img) {
+  const src = img.dataset.src;
+  const fallback = img.dataset.fallback;
+  
+  // Show loading spinner
+  const wrapper = img.closest('.project-image-wrapper');
+  if (wrapper && !wrapper.querySelector('.loading-spinner')) {
+    const spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+    spinner.innerHTML = '<div class="spinner"></div>';
+    wrapper.appendChild(spinner);
+  }
+  
+  // Try to load the screenshot API image first
+  const tempImg = new Image();
+  
+  tempImg.onload = function() {
+    img.src = src;
+    img.classList.add('loaded');
+    removeSpinner(wrapper);
+  };
+  
+  tempImg.onerror = function() {
+    // If screenshot API fails, try fallback
+    if (fallback) {
+      const fallbackImg = new Image();
+      
+      fallbackImg.onload = function() {
+        img.src = fallback;
+        img.classList.add('loaded');
+        removeSpinner(wrapper);
+      };
+      
+      fallbackImg.onerror = function() {
+        // If fallback also fails, show placeholder
+        removeSpinner(wrapper);
+        showImagePlaceholder(wrapper);
+      };
+      
+      fallbackImg.src = fallback;
+    } else {
+      removeSpinner(wrapper);
+      showImagePlaceholder(wrapper);
+    }
+  };
+  
+  tempImg.src = src;
+}
+
+function removeSpinner(wrapper) {
+  if (wrapper) {
+    const spinner = wrapper.querySelector('.loading-spinner');
+    if (spinner) {
+      spinner.remove();
+    }
+  }
+}
+
+function showImagePlaceholder(wrapper) {
+  if (!wrapper || wrapper.querySelector('.project-image-placeholder')) return;
+  
+  const img = wrapper.querySelector('img');
+  if (img) {
+    img.style.display = 'none';
+  }
+  
+  // Placeholder is already in HTML, just make it visible
+  const overlay = wrapper.querySelector('.project-image-overlay');
+  if (overlay) {
+    overlay.style.opacity = '0.5';
+  }
+}
+
+// ============================================
+// INITIALIZE PROJECT IMAGES (Free Screenshot Service)
+// ============================================
+function initProjectImages() {
+  // Update screenshot URLs to use free screenshot service
+  const projectImages = document.querySelectorAll('.project-image[data-src]');
+  
+  projectImages.forEach(img => {
+    const url = img.dataset.src;
+    // Replace with free screenshot service (screenshotone.com has a free tier)
+    if (url.includes('YOUR_KEY')) {
+      // Extract the actual URL from the data-src
+      const urlMatch = url.match(/url=([^&]+)/);
+      if (urlMatch) {
+        const targetUrl = decodeURIComponent(urlMatch[1]);
+        // Use a free service like screenshotone or keep as fallback only
+        img.dataset.src = img.dataset.fallback; // Use fallback directly for now
+      }
+    }
+  });
+}
+
+// ============================================
+// ADVANCED FORM VALIDATION
+// ============================================
+function initAdvancedFormValidation() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  
+  const inputs = form.querySelectorAll('.form-input');
+  
+  inputs.forEach(input => {
+    // Real-time validation on blur
+    input.addEventListener('blur', function() {
+      validateField(this);
+    });
+    
+    // Clear error on input
+    input.addEventListener('input', function() {
+      if (this.classList.contains('error')) {
+        this.classList.remove('error');
+        const errorMsg = this.parentElement.querySelector('.form-error-message');
+        if (errorMsg) errorMsg.remove();
       }
     });
   });
   
-  const images = document.querySelectorAll('img[data-src]');
-  images.forEach(img => imageObserver.observe(img));
+  // Validate on submit
+  form.addEventListener('submit', function(e) {
+    let isValid = true;
+    
+    inputs.forEach(input => {
+      if (!validateField(input)) {
+        isValid = false;
+      }
+    });
+    
+    if (!isValid) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
+}
+
+function validateField(field) {
+  const value = field.value.trim();
+  const type = field.type;
+  const name = field.name;
+  let isValid = true;
+  let errorMessage = '';
+  
+  // Remove existing error
+  field.classList.remove('error');
+  const existingError = field.parentElement.querySelector('.form-error-message');
+  if (existingError) existingError.remove();
+  
+  // Required check
+  if (field.hasAttribute('required') && !value) {
+    isValid = false;
+    errorMessage = `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
+  }
+  
+  // Email validation
+  if (type === 'email' && value) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      isValid = false;
+      errorMessage = 'Please enter a valid email address';
+    }
+  }
+  
+  // Message length validation
+  if (name === 'message' && value && value.length < 10) {
+    isValid = false;
+    errorMessage = 'Message must be at least 10 characters long';
+  }
+  
+  // Name validation
+  if (name === 'name' && value && value.length < 2) {
+    isValid = false;
+    errorMessage = 'Name must be at least 2 characters long';
+  }
+  
+  if (!isValid) {
+    field.classList.add('error');
+    field.parentElement.classList.add('error');
+    
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'form-error-message';
+    errorDiv.textContent = errorMessage;
+    field.parentElement.appendChild(errorDiv);
+    
+    // Scroll to first error
+    if (document.querySelector('.form-input.error') === field) {
+      field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  } else {
+    field.parentElement.classList.remove('error');
+  }
+  
+  return isValid;
 }
 
 // ============================================
