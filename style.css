@@ -619,6 +619,15 @@ body.light-mode {
   .timeline-content {
     width: calc(100% - 60px);
     margin-left: 60px !important;
+    padding: 1.5rem;
+  }
+  
+  .timeline-title {
+    font-size: 1.25rem;
+  }
+  
+  .timeline-description {
+    font-size: 0.9rem;
   }
 }
 
