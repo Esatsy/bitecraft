@@ -31,7 +31,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #020202;
-            overflow: hidden;
+            overflow-x: hidden;
             min-height: 100vh;
         }
         .grid-bg {
@@ -64,18 +64,26 @@
         .animate-load { animation: loading-bar 3s ease-in-out forwards; }
     </style>
 </head>
-<body class="flex items-center justify-center text-white">
-    <div class="relative h-[860px] w-[1400px] origin-center scale-[0.34] sm:scale-[0.44] md:scale-[0.55] lg:scale-[0.68] xl:scale-[0.78] 2xl:scale-100 overflow-hidden">
-        <div class="absolute inset-0 grid-bg pointer-events-none"></div>
-        <div class="absolute top-[-16%] left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-[100px] pointer-events-none"></div>
+<body class="min-h-screen text-white">
+    <div class="aura-background-component pointer-events-none fixed top-0 z-0 h-screen w-full" data-alpha-mask="80" style="mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+        <div class="aura-background-component absolute top-0 z-0 h-full w-full">
+            <div data-us-project="HzcaAbRLaALMhHJp8gLY" class="absolute left-0 top-0 z-0 h-full w-full"></div>
+            <script type="text/javascript">
+                !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+            </script>
+        </div>
+    </div>
+    <div class="relative min-h-screen w-full overflow-visible py-16">
+        <div class="fixed inset-0 grid-bg pointer-events-none"></div>
+        <div class="fixed top-[-16%] left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-[100px] pointer-events-none"></div>
 
-        <main class="relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-6">
+        <main class="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col justify-center px-6">
             <header class="mb-14 text-center opacity-0 animate-[fade-in-up_0.8s_ease-out_forwards]">
                 <h1 class="mb-4 bg-gradient-to-br from-white via-white to-neutral-600 bg-clip-text font-display text-6xl font-bold tracking-tighter text-transparent">ZOKA</h1>
                 <p class="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">Deception & Detection Game</p>
             </header>
 
-            <div class="grid grid-cols-3 items-start justify-center gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-start justify-center gap-12 xl:gap-10">
                 <section class="phone-frame relative mx-auto flex h-[680px] w-[320px] flex-col overflow-hidden rounded-[2.5rem] bg-[#050505] opacity-0 animate-[fade-in-up_0.8s_ease-out_0.2s_forwards]">
                     <div class="absolute left-1/2 top-0 z-50 flex h-7 w-28 -translate-x-1/2 items-end justify-center rounded-b-2xl bg-black pb-1.5">
                         <div class="h-1 w-16 rounded-full bg-neutral-800"></div>
