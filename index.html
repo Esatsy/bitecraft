@@ -594,7 +594,7 @@ addUtilities({
     <!-- Projects List -->
     <div class="flex flex-col w-full border-t border-white/5">
         <!-- Project 1: Zoka -->
-        <a href="https://3b476628.zoka-8oh.pages.dev/" target="_blank" class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02] cursor-pointer">
+        <div class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02]">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-8 pb-8 items-center">
                 <div class="col-span-1 md:col-span-3 flex flex-col gap-1">
                     <span class="text-xs font-semibold tracking-widest uppercase text-orange-500"> Cross-Platform Game </span>
@@ -608,12 +608,30 @@ addUtilities({
                     <p class="mt-2 text-sm leading-relaxed text-neutral-400 max-w-3xl">
                         Cross-platform multiplayer social deduction bluff game developed with React Native and Firebase for iOS and Android.
                     </p>
+                    <a href="https://3b476628.zoka-8oh.pages.dev/" target="_blank" class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-orange-400 hover:text-white transition-colors">
+                        Web Build
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </a>
                 </div>
                 <div class="col-span-1 flex justify-end">
-                    <i data-lucide="external-link" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors"></i>
+                    <i data-lucide="smartphone" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors"></i>
                 </div>
             </div>
-        </a>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 pb-10">
+                <div class="hidden md:block col-span-3"></div>
+                <div class="col-span-1 md:col-span-9 mx-4 md:mx-0 overflow-hidden rounded-lg border border-white/10 bg-[#020202] shadow-2xl shadow-orange-500/5">
+                    <div class="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-4 py-3">
+                        <div class="flex items-center gap-2">
+                            <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
+                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/70"></span>
+                        </div>
+                        <span class="text-[10px] font-semibold uppercase tracking-widest text-neutral-500">Mobile Flow Demo</span>
+                    </div>
+                    <iframe src="zoka.html" title="Zoka mobile game flow embedded demo" class="block w-full aspect-[16/10] border-0 bg-[#020202]" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
 
         <!-- Project 2: Remax Turkey -->
         <div class="group relative border-b border-white/5 transition-colors duration-300 hover:bg-white/[0.02]">
