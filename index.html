@@ -660,15 +660,15 @@ addUtilities({
                 <div class="hidden md:block col-span-3"></div>
                 <div class="col-span-1 md:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-4 pr-4 pl-4 md:pl-0">
                     <figure class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.03]">
-                        <img src="images/projects/remax-smartmatch-home.svg" alt="Remax SmartMatch landing screen" class="w-full aspect-video object-cover">
+                        <img src="images/projects/remax1.png" alt="Remax SmartMatch landing screen" class="w-full aspect-video object-cover">
                         <figcaption class="px-4 py-3 text-xs font-medium text-neutral-500">Landing and smart search entry</figcaption>
                     </figure>
                     <figure class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.03]">
-                        <img src="images/projects/remax-smartmatch-quiz.svg" alt="Remax SmartMatch questionnaire screen" class="w-full aspect-video object-cover">
+                        <img src="images/projects/remax2.png" alt="Remax SmartMatch questionnaire screen" class="w-full aspect-video object-cover">
                         <figcaption class="px-4 py-3 text-xs font-medium text-neutral-500">Preference questionnaire flow</figcaption>
                     </figure>
                     <figure class="overflow-hidden rounded-lg border border-white/10 bg-white/[0.03]">
-                        <img src="images/projects/remax-listings-map.svg" alt="Remax listings and map screen" class="w-full aspect-video object-cover">
+                        <img src="images/projects/remax3.png" alt="Remax listings and map screen" class="w-full aspect-video object-cover">
                         <figcaption class="px-4 py-3 text-xs font-medium text-neutral-500">Listings with map exploration</figcaption>
                     </figure>
                 </div>
@@ -830,6 +830,17 @@ addUtilities({
     </div>
 </div>
 
+<!-- Image Lightbox -->
+<div id="imageLightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 px-4 py-6 backdrop-blur-md">
+    <button type="button" id="lightboxClose" class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white transition-colors hover:bg-white/20" aria-label="Close image preview">
+        <i data-lucide="x" class="h-5 w-5"></i>
+    </button>
+    <div class="flex max-h-full w-full max-w-6xl flex-col items-center gap-4">
+        <img id="lightboxImage" src="" alt="" class="max-h-[82vh] max-w-full rounded-lg border border-white/10 object-contain shadow-2xl">
+        <div id="lightboxCaption" class="max-w-3xl text-center text-sm font-medium text-neutral-300"></div>
+    </div>
+</div>
+
 <!-- Footer / Contact -->
 <div id="contact" class="overflow-hidden group bg-[#050505] w-full border-white/5 border-t relative">
     <div class="pointer-events-none z-0 absolute top-0 right-0 bottom-0 left-0">
@@ -894,6 +905,41 @@ addUtilities({
 
 <script>
     lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+
+    const imageLightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function closeLightbox() {
+        imageLightbox.classList.add('hidden');
+        imageLightbox.classList.remove('flex');
+        lightboxImage.src = '';
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    document.querySelectorAll('#projects figure img').forEach((image) => {
+        image.classList.add('cursor-zoom-in');
+        image.addEventListener('click', () => {
+            const caption = image.closest('figure')?.querySelector('figcaption')?.textContent?.trim() || image.alt;
+            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.alt = image.alt;
+            lightboxCaption.textContent = caption;
+            imageLightbox.classList.remove('hidden');
+            imageLightbox.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    imageLightbox.addEventListener('click', (event) => {
+        if (event.target === imageLightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
+    });
 
     let currentStep = 1;
 
