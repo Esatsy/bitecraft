@@ -1,0 +1,254 @@
+<html lang="en" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DraftBetter - LoL Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#09090b',
+                        surface: '#121214',
+                        border: '#27272a',
+                        primary: '#06b6d4',
+                        primaryDim: 'rgba(6, 182, 212, 0.1)',
+                        victory: '#eab308',
+                        defeat: '#ef4444',
+                    },
+                    letterSpacing: {
+                        tightest: '-0.05em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        .app-drag { -webkit-app-region: drag; }
+        .no-drag { -webkit-app-region: no-drag; }
+        .glass-panel {
+            background: rgba(18, 18, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .card-glow:hover::after { opacity: 1; }
+        .card-glow::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            background: linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="bg-background text-zinc-400 font-sans h-screen w-screen overflow-hidden flex flex-col selection:bg-primary selection:text-white">
+    <header class="h-10 border-b border-border flex justify-between items-center px-4 bg-surface/50 app-drag z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-5 h-5 bg-gradient-to-br from-primary to-cyan-700 rounded-md flex items-center justify-center text-white text-[10px] font-bold">D</div>
+            <span class="text-xs font-medium text-zinc-200 tracking-wide">DraftBetter <span class="text-zinc-600 ml-1">v2.4.0</span></span>
+        </div>
+        <div class="flex items-center gap-2 no-drag">
+            <div class="h-2 w-2 rounded-full bg-zinc-600 hover:bg-zinc-400 cursor-pointer transition-colors"></div>
+            <div class="h-2 w-2 rounded-full bg-zinc-600 hover:bg-zinc-400 cursor-pointer transition-colors"></div>
+            <div class="h-2 w-2 rounded-full bg-red-500/50 hover:bg-red-500 cursor-pointer transition-colors"></div>
+        </div>
+    </header>
+    <div class="flex flex-1 overflow-hidden relative">
+        <aside class="w-16 border-r border-border flex flex-col items-center py-6 gap-8 bg-surface/30 backdrop-blur-sm z-40">
+            <nav class="flex flex-col gap-6 w-full items-center">
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-500 hover:text-zinc-100 hover:bg-white/5 transition-all group relative">
+                    <iconify-icon icon="solar:home-smile-bold-duotone" width="24"></iconify-icon>
+                    <span class="absolute left-14 bg-zinc-800 text-zinc-200 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">Home</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-primary bg-primaryDim border border-primary/20 shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all relative">
+                    <div class="absolute -left-[19px] top-1/2 -translate-y-1/2 w-1 h-5 bg-primary rounded-r-full"></div>
+                    <iconify-icon icon="solar:gamepad-bold-duotone" width="24"></iconify-icon>
+                </button>
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-500 hover:text-zinc-100 hover:bg-white/5 transition-all group relative">
+                    <iconify-icon icon="solar:user-hand-up-bold-duotone" width="24"></iconify-icon>
+                    <span class="absolute left-14 bg-zinc-800 text-zinc-200 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">Champions</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-500 hover:text-zinc-100 hover:bg-white/5 transition-all group relative">
+                    <iconify-icon icon="solar:ranking-bold-duotone" width="24"></iconify-icon>
+                    <span class="absolute left-14 bg-zinc-800 text-zinc-200 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">Tier List</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-500 hover:text-zinc-100 hover:bg-white/5 transition-all group relative">
+                    <iconify-icon icon="solar:connection-bold-duotone" width="24"></iconify-icon>
+                    <span class="absolute left-14 bg-zinc-800 text-zinc-200 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">Synergies</span>
+                </button>
+            </nav>
+            <div class="mt-auto flex flex-col gap-6 w-full items-center">
+                <button class="w-10 h-10 rounded-xl flex items-center justify-center text-zinc-500 hover:text-zinc-100 hover:bg-white/5 transition-all group relative">
+                    <iconify-icon icon="solar:settings-minimalistic-bold-duotone" width="24"></iconify-icon>
+                </button>
+                <div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+                    <img src="https://ui-avatars.com/api/?name=Summoner&amp;background=27272a&amp;color=a1a1aa" alt="User" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 flex flex-col relative">
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-primary/5 blur-[120px] rounded-full"></div>
+                <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-blue-600/5 blur-[100px] rounded-full"></div>
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            </div>
+            <div class="h-16 border-b border-border/50 px-8 flex items-center justify-between z-10">
+                <div class="flex items-center gap-4">
+                    <h1 class="font-display text-xl text-white font-medium tracking-tight">Summoner's Rift <span class="text-zinc-600 mx-2">/</span> Ranked Solo</h1>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-800 text-zinc-400 border border-zinc-700/50">Patch 14.8</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                        <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                        <span class="text-xs font-medium text-emerald-400">Client Connected</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 grid grid-cols-12 gap-0 overflow-hidden z-10">
+                <div class="col-span-3 lg:col-span-2 border-r border-border/50 bg-surface/20 flex flex-col">
+                    <div class="px-5 py-4 border-b border-border/50 flex justify-between items-center">
+                        <span class="text-xs font-medium uppercase tracking-widest text-primary">Blue Team</span>
+                        <iconify-icon icon="solar:shield-bold-duotone" class="text-primary opacity-50"></iconify-icon>
+                    </div>
+                    <div class="flex-1 flex flex-col">
+                        <div class="flex-1 border-b border-border/50 relative group overflow-hidden bg-white/[0.02]">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-primary/10 to-transparent"></div>
+                            <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-primary"></div>
+                            <div class="h-full flex items-center px-4 gap-4 relative z-10">
+                                <div class="relative">
+                                    <div class="w-12 h-12 rounded-full border-2 border-primary/30 p-0.5">
+                                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/KaiSa_0.jpg" class="w-full h-full rounded-full object-cover">
+                                    </div>
+                                    <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-surface border border-border rounded-full flex items-center justify-center text-zinc-400">
+                                        <iconify-icon icon="solar:target-bold-duotone" width="12"></iconify-icon>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-white">You</div>
+                                    <div class="text-xs text-primary mt-0.5">Picking...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 border-b border-border/50 relative group">
+                            <div class="h-full flex items-center px-4 gap-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-500"><iconify-icon icon="mdi:sword" width="16"></iconify-icon></div>
+                                <div class="flex flex-col gap-1"><div class="h-2 w-16 bg-zinc-800 rounded"></div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Top Lane</div></div>
+                            </div>
+                        </div>
+                        <div class="flex-1 border-b border-border/50 relative group">
+                            <div class="h-full flex items-center px-4 gap-4">
+                                <div class="w-10 h-10 rounded-full border border-zinc-700 overflow-hidden"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/LeeSin_0.jpg" class="w-full h-full object-cover filter grayscale opacity-60"></div>
+                                <div><div class="text-sm font-medium text-zinc-400">Summoner 3</div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Jungle</div></div>
+                            </div>
+                        </div>
+                        <div class="flex-1 border-b border-border/50 relative group">
+                             <div class="h-full flex items-center px-4 gap-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                                <div class="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-500"><iconify-icon icon="mdi:flash" width="16"></iconify-icon></div>
+                                <div class="flex flex-col gap-1"><div class="h-2 w-16 bg-zinc-800 rounded"></div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Mid Lane</div></div>
+                            </div>
+                        </div>
+                        <div class="flex-1 relative group">
+                            <div class="h-full flex items-center px-4 gap-4">
+                                <div class="w-10 h-10 rounded-full border border-zinc-700 overflow-hidden"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg" class="w-full h-full object-cover filter grayscale opacity-60"></div>
+                                <div><div class="text-sm font-medium text-zinc-400">Summoner 5</div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Support</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-6 lg:col-span-8 flex flex-col p-8 relative">
+                    <div class="flex justify-center mb-10">
+                        <div class="glass-panel p-1 rounded-full flex gap-1">
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 transition-all"><iconify-icon icon="mdi:sword" width="18"></iconify-icon></button>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 transition-all"><iconify-icon icon="mdi:tree" width="18"></iconify-icon></button>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 transition-all"><iconify-icon icon="mdi:flash" width="18"></iconify-icon></button>
+                            <button class="w-10 h-10 rounded-full bg-primary text-white shadow-lg shadow-primary/20 flex items-center justify-center"><iconify-icon icon="mdi:target" width="18"></iconify-icon></button>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 transition-all"><iconify-icon icon="mdi:heart-plus" width="18"></iconify-icon></button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-full items-center">
+                        <div class="h-[420px] rounded-2xl relative group cursor-pointer transition-transform duration-300 hover:-translate-y-2">
+                            <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-surface">
+                                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Jhin_0.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-6">
+                                    <div class="flex justify-between items-end mb-2"><h3 class="text-2xl font-display font-medium text-white tracking-tight">Jhin</h3><div class="text-emerald-400 font-medium text-lg">94<span class="text-xs text-zinc-500 ml-0.5">%</span></div></div>
+                                    <p class="text-xs text-zinc-400 line-clamp-2 mb-4">Excellent synergy with Thresh. Strong against current enemy composition.</p>
+                                    <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
+                                        <button class="flex-1 py-2 bg-primary/90 hover:bg-primary text-white text-xs font-semibold uppercase tracking-wide rounded">Pick</button>
+                                        <button class="w-8 flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded border border-white/10"><iconify-icon icon="solar:forbidden-bold-duotone"></iconify-icon></button>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4 px-2 py-1 bg-black/60 backdrop-blur rounded text-[10px] font-bold text-victory border border-victory/20 uppercase tracking-wider">S-Tier</div>
+                            </div>
+                        </div>
+                        <div class="h-[460px] rounded-2xl relative group cursor-pointer card-glow z-10">
+                            <div class="absolute inset-0 rounded-2xl overflow-hidden border border-primary/30 bg-surface shadow-2xl shadow-primary/5">
+                                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Kaisa_0.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-6">
+                                    <div class="flex justify-between items-end mb-2"><h3 class="text-3xl font-display font-medium text-white tracking-tight">Kai'sa</h3><div class="text-primary font-medium text-xl">98<span class="text-xs text-zinc-500 ml-0.5">%</span></div></div>
+                                    <div class="flex gap-2 mb-6"><span class="px-2 py-0.5 rounded text-[10px] bg-primary/20 text-primary border border-primary/20">Hypercarry</span><span class="px-2 py-0.5 rounded text-[10px] bg-zinc-800 text-zinc-400 border border-white/5">Hybrid Dmg</span></div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <button class="py-3 bg-primary hover:bg-cyan-400 text-black text-sm font-semibold uppercase tracking-wide rounded transition-colors flex items-center justify-center gap-2"><iconify-icon icon="solar:check-circle-bold"></iconify-icon>Lock In</button>
+                                        <button class="py-3 bg-zinc-800/80 hover:bg-red-500/20 hover:text-red-400 hover:border-red-500/30 text-zinc-300 border border-white/10 text-sm font-medium uppercase tracking-wide rounded transition-all">Ban</button>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 left-4"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black font-bold text-sm">1</div></div>
+                            </div>
+                        </div>
+                        <div class="h-[420px] rounded-2xl relative group cursor-pointer transition-transform duration-300 hover:-translate-y-2">
+                            <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-surface">
+                                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ezreal_0.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 w-full p-6">
+                                    <div class="flex justify-between items-end mb-2"><h3 class="text-2xl font-display font-medium text-white tracking-tight">Ezreal</h3><div class="text-emerald-400 font-medium text-lg">91<span class="text-xs text-zinc-500 ml-0.5">%</span></div></div>
+                                    <p class="text-xs text-zinc-400 line-clamp-2 mb-4">Safe pick. Good scaling. Weak early game pressure compared to enemy lane.</p>
+                                    <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
+                                        <button class="flex-1 py-2 bg-primary/90 hover:bg-primary text-white text-xs font-semibold uppercase tracking-wide rounded">Pick</button>
+                                        <button class="w-8 flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded border border-white/10"><iconify-icon icon="solar:forbidden-bold-duotone"></iconify-icon></button>
+                                    </div>
+                                </div>
+                                <div class="absolute top-4 right-4 px-2 py-1 bg-black/60 backdrop-blur rounded text-[10px] font-bold text-zinc-400 border border-white/10 uppercase tracking-wider">A-Tier</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-auto flex justify-between items-center text-xs text-zinc-500 font-medium uppercase tracking-widest px-4">
+                        <div class="flex gap-4"><span class="hover:text-zinc-300 cursor-pointer">Sort by: Winrate</span><span class="hover:text-zinc-300 cursor-pointer text-zinc-300">Score</span><span class="hover:text-zinc-300 cursor-pointer">Mastery</span></div>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>AI Analysis Active</div>
+                    </div>
+                </div>
+                <div class="col-span-3 lg:col-span-2 border-l border-border/50 bg-surface/20 flex flex-col">
+                    <div class="px-5 py-4 border-b border-border/50 flex justify-between items-center">
+                        <iconify-icon icon="solar:sword-bold-duotone" class="text-defeat opacity-50"></iconify-icon>
+                        <span class="text-xs font-medium uppercase tracking-widest text-defeat">Red Team</span>
+                    </div>
+                    <div class="flex-1 flex flex-col">
+                        <div class="flex-1 border-b border-border/50 relative group"><div class="h-full flex flex-row-reverse items-center px-4 gap-4"><div class="w-10 h-10 rounded-full border border-defeat/30 overflow-hidden"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Darius_0.jpg" class="w-full h-full object-cover"></div><div class="text-right"><div class="text-sm font-medium text-zinc-300">Darius</div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Top</div></div></div></div>
+                        <div class="flex-1 border-b border-border/50 relative group"><div class="h-full flex flex-row-reverse items-center px-4 gap-4"><div class="w-10 h-10 rounded-full border border-defeat/30 overflow-hidden"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg" class="w-full h-full object-cover"></div><div class="text-right"><div class="text-sm font-medium text-zinc-300">Viego</div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Jungle</div></div></div></div>
+                        <div class="flex-1 border-b border-border/50 relative group"><div class="h-full flex flex-row-reverse items-center px-4 gap-4 opacity-50"><div class="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-500"><iconify-icon icon="mdi:flash" width="16"></iconify-icon></div><div class="text-right flex flex-col items-end gap-1"><div class="h-2 w-16 bg-zinc-800 rounded"></div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Mid</div></div></div></div>
+                        <div class="flex-1 border-b border-border/50 relative group"><div class="h-full flex flex-row-reverse items-center px-4 gap-4 opacity-50"><div class="w-10 h-10 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-500"><iconify-icon icon="mdi:target" width="16"></iconify-icon></div><div class="text-right flex flex-col items-end gap-1"><div class="h-2 w-16 bg-zinc-800 rounded"></div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Bot</div></div></div></div>
+                        <div class="flex-1 relative group"><div class="h-full flex flex-row-reverse items-center px-4 gap-4"><div class="w-10 h-10 rounded-full border border-defeat/30 overflow-hidden"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nautilus_0.jpg" class="w-full h-full object-cover"></div><div class="text-right"><div class="text-sm font-medium text-zinc-300">Nautilus</div><div class="text-[10px] text-zinc-600 font-medium uppercase tracking-wider">Support</div></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>lucide.createIcons();</script>
+</body></html>
