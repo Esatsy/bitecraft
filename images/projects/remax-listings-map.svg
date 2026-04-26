@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Remax listings and map preview</title>
+  <desc id="desc">Listings grid with a map preview for Remax SmartMatch.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2747"/>
+      <stop offset="1" stop-color="#0a0824"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#253653"/>
+      <stop offset="1" stop-color="#101a31"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <text x="48" y="72" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Tumu bolgesinde 163 konum</text>
+  <rect x="48" y="102" width="250" height="46" rx="23" fill="#2a3854" stroke="#52627c"/>
+  <text x="82" y="132" fill="#eef3ff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Tum ilanlar gosteriliyor</text>
+  <rect x="318" y="102" width="260" height="46" rx="23" fill="#172847" stroke="#3b82f6" stroke-width="2"/>
+  <text x="354" y="132" fill="#97bdff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Akilli Siralama Uygula</text>
+  <rect x="250" y="178" width="560" height="62" rx="31" fill="#050916" stroke="#243552" stroke-width="2"/>
+  <text x="318" y="216" fill="#8fa5c8" font-family="Inter, Arial, sans-serif" font-size="20">Ara...</text>
+  <g transform="translate(48 288)">
+    <rect width="300" height="330" rx="8" fill="url(#card)" stroke="#40506a"/>
+    <rect x="0" y="0" width="300" height="160" rx="8" fill="#e8edf7"/>
+    <rect x="22" y="22" width="256" height="116" rx="4" fill="#bec8d8"/>
+    <circle cx="270" cy="24" r="12" fill="#f43f5e"/>
+    <text x="20" y="198" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Daire · 4+1 · 200 m2</text>
+    <text x="20" y="226" fill="#9db0cd" font-family="Inter, Arial, sans-serif" font-size="15">REMAX PARAF'TAN NATAVEGA...</text>
+    <text x="20" y="278" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">9.000.000 TL · Satis</text>
+  </g>
+  <g transform="translate(374 288)">
+    <rect width="300" height="330" rx="8" fill="url(#card)" stroke="#40506a"/>
+    <rect width="300" height="160" rx="8" fill="#7aa7d8"/>
+    <path d="M0 110c80-50 150-42 300-82v132H0Z" fill="#8db35f"/>
+    <circle cx="270" cy="24" r="12" fill="#6b7280"/>
+    <text x="20" y="198" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Arsa · 90 m2</text>
+    <text x="20" y="226" fill="#9db0cd" font-family="Inter, Arial, sans-serif" font-size="15">MARMARIS SOGUT'TE...</text>
+    <text x="20" y="278" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">19.900.000 TL · Satis</text>
+  </g>
+  <g transform="translate(730 288)">
+    <rect width="500" height="330" rx="22" fill="#f4f1ea"/>
+    <path d="M0 170c120-20 190-110 310-78 92 25 102 110 190 118" fill="none" stroke="#ef6c8f" stroke-width="6"/>
+    <path d="M20 70h460M80 0v330M210 0v330M350 0v330M0 250h500" stroke="#ccd5df" stroke-width="2"/>
+    <text x="180" y="176" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="22">Ankara</text>
+    <g fill="#f59e0b" stroke="#fff" stroke-width="4">
+      <circle cx="180" cy="230" r="18"/>
+      <circle cx="250" cy="160" r="18"/>
+      <circle cx="320" cy="250" r="18"/>
+      <circle cx="390" cy="140" r="18"/>
+    </g>
+    <rect x="340" y="28" width="130" height="48" rx="24" fill="#0f2747" stroke="#3b82f6" stroke-width="2"/>
+    <text x="366" y="58" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">Haritayi Buyut</text>
+  </g>
+</svg>

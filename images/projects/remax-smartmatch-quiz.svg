@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Remax SmartMatch quiz preview</title>
+  <desc id="desc">Dark questionnaire screen with selected weekend preference option.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06142f"/>
+      <stop offset="1" stop-color="#0c1028"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#6155f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="290" y="84" width="700" height="552" rx="28" fill="#19233b" stroke="#764bd6" stroke-width="3"/>
+  <text x="640" y="142" text-anchor="middle" fill="#cfe0ff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Soru 10 / 13</text>
+  <text x="640" y="220" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="850">Hafta sonlarinizi nasil gecirmeyi</text>
+  <text x="640" y="264" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="850">seversiniz?</text>
+  <text x="640" y="302" text-anchor="middle" fill="#98a6be" font-family="Inter, Arial, sans-serif" font-size="17">Birden fazla secebilirsiniz</text>
+  <g transform="translate(330 340)">
+    <rect width="620" height="70" rx="14" fill="#3b82f6"/>
+    <text x="26" y="44" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="28">✓</text>
+    <text x="76" y="34" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Kafe/Restoran</text>
+    <text x="76" y="58" fill="#e7eeff" font-family="Inter, Arial, sans-serif" font-size="14">Disarida yemek, sosyallesme</text>
+  </g>
+  <g transform="translate(330 426)" fill="#2a344c" stroke="#46536d">
+    <rect width="620" height="70" rx="14"/>
+    <circle cx="26" cy="35" r="8" fill="none" stroke="#d7deeb" stroke-width="2"/>
+    <text x="76" y="34" fill="#f3f6ff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Alisveris</text>
+    <text x="76" y="58" fill="#98a6be" font-family="Inter, Arial, sans-serif" font-size="14">AVM, magazalar</text>
+  </g>
+  <g transform="translate(330 512)" fill="#2a344c" stroke="#46536d">
+    <rect width="620" height="70" rx="14"/>
+    <circle cx="26" cy="35" r="8" fill="none" stroke="#d7deeb" stroke-width="2"/>
+    <text x="76" y="34" fill="#f3f6ff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Doga/Park</text>
+    <text x="76" y="58" fill="#98a6be" font-family="Inter, Arial, sans-serif" font-size="14">Yuruyus, piknik</text>
+  </g>
+  <text x="640" y="616" text-anchor="middle" fill="#8fa5c8" font-family="Inter, Arial, sans-serif" font-size="16">1 secim yapildi</text>
+</svg>
