@@ -152,11 +152,11 @@ Test: iPhone boyutuna ayarlayın (375px)
 
 ### Experience Timeline
 - [ ] 5 timeline item var
-- [ ] "Present" - Full Stack Developer
-- [ ] "2023" - GOIT Program
-- [ ] "2020 - Present" - Team Lead & Scrum Master
-- [ ] "2019" - Career Start
-- [ ] "Graduated" - Ufuk University
+- [ ] "2022 - PRESENT" - BiteCraft
+- [ ] "2025 - 03/2026" - Remax Turkey
+- [ ] "03/2024 - 10/2024" - GOIT Bootcamps
+- [ ] "02/2022 - 03/2024" - Ufuk University
+- [ ] "09/2021 - 02/2022" - Ankara Yıldırım Beyazıt University
 - [ ] Timeline çizgisi görünüyor
 - [ ] Noktalar pulse animasyonu yapıyor
 
