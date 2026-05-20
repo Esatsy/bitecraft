@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esat Serden Yıldırım - CV</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --muted: #555;
+      --light: #777;
+      --rule: #d8d8d8;
+      --accent: #c45116;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.42;
+    }
+
+    body {
+      padding: 28px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 25pt;
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 750;
+    }
+
+    .role {
+      font-size: 11.5pt;
+      font-weight: 650;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      text-align: right;
+      color: var(--muted);
+      font-size: 9.2pt;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    section {
+      margin: 13px 0 0;
+    }
+
+    h2 {
+      margin: 0 0 7px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
+      font-size: 10.5pt;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 10.8pt;
+      line-height: 1.25;
+      font-weight: 760;
+    }
+
+    p {
+      margin: 0 0 6px;
+    }
+
+    ul {
+      margin: 4px 0 0 16px;
+      padding: 0;
+    }
+
+    li {
+      margin: 0 0 3px;
+      padding-left: 2px;
+    }
+
+    .summary {
+      color: #333;
+    }
+
+    .item {
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 9.4pt;
+      font-weight: 650;
+      margin: 1px 0 3px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 142px 1fr;
+      column-gap: 12px;
+      row-gap: 4px;
+    }
+
+    .skill-label {
+      font-weight: 760;
+      color: var(--ink);
+    }
+
+    .skill-value {
+      color: #333;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px 18px;
+    }
+
+    .project {
+      break-inside: avoid;
+    }
+
+    .project h3 {
+      font-size: 10.2pt;
+    }
+
+    .project p {
+      color: #333;
+      font-size: 9.5pt;
+    }
+
+    .languages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .note {
+      color: var(--light);
+      font-size: 9pt;
+      margin-top: 4px;
+    }
+
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+
+      .page {
+        max-width: none;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Esat Serden Yıldırım</h1>
+        <div class="role">Full Stack Engineer | AI-Assisted Builder | Founder of BiteCraft</div>
+        <p class="summary">Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in React, React Native, Node.js, Redis, Firebase, C#, and ASP.NET, with ownership across frontend, backend, infrastructure, deployment, and production launch.</p>
+      </div>
+      <div class="contact">
+        Ankara, Türkiye<br>
+        <a href="mailto:yldrma423@gmail.com">yldrma423@gmail.com</a><br>
+        <a href="https://github.com/Esatsy">github.com/Esatsy</a><br>
+        <a href="https://linkedin.com/in/esatsy">linkedin.com/in/esatsy</a><br>
+        <a href="https://twitter.com/Esatsy">twitter.com/Esatsy</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Core Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-label">Frontend</div>
+        <div class="skill-value">Next.js, React, React Native, TypeScript, Swift, Tailwind CSS, UI/UX Implementation</div>
+        <div class="skill-label">Backend</div>
+        <div class="skill-value">Node.js, C#, ASP.NET, Redis, Firebase, Supabase, pgvector, RESTful API Design</div>
+        <div class="skill-label">Infrastructure</div>
+        <div class="skill-value">DevOps, Server Configuration, End-to-End Deployment, Production Launch</div>
+        <div class="skill-label">AI Development</div>
+        <div class="skill-value">LangGraph, LangChain, Google Gemini API, Agentic Coding, Cursor, Claude 4.5, Model Context Protocol (MCP)</div>
+        <div class="skill-label">Security</div>
+        <div class="skill-value">Secure AI-Assisted Coding, AI Output Validation, Basic Cryptography Principles</div>
+        <div class="skill-label">Ways of Working</div>
+        <div class="skill-value">Agile, Scrum, Sprint Planning, Team Leadership</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="item">
+        <h3>Founder & Independent Full Stack Developer | BiteCraft</h3>
+        <div class="meta">2022 - Present | Ankara, Türkiye</div>
+        <ul>
+          <li>Deliver web, iOS, and Android products independently through BiteCraft, owning development from concept to deployment.</li>
+          <li>Built <strong>B.O.T.S. - Based On True Stories</strong>, an AI-powered party game that converts real Reddit stories into structured gameplay with LangGraph, Google Gemini, Supabase, pgvector, and Kick chat integration.</li>
+          <li>Build <strong>Zoka</strong>, a cross-platform multiplayer social deduction bluff game for iOS and Android, using React Native and Firebase.</li>
+          <li>Apply Cursor, Claude, and agentic coding workflows to accelerate development by 50%+ while validating AI-generated code for security, maintainability, and architecture fit.</li>
+          <li>Own full-stack implementation, technical decisions, infrastructure setup, deployment, and product iteration.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <h3>Full Stack Developer | BiteCraft - Remax Turkey</h3>
+        <div class="meta">2025 - 03/2026 | Ankara, Türkiye</div>
+        <ul>
+          <li>Architected and developed a modern real estate filtering and management platform for a local Remax branch.</li>
+          <li>Built the full stack independently with React, Node.js, and Redis.</li>
+          <li>Managed system design, DevOps, server configuration, and final production launch.</li>
+          <li>Developed flows for preference questionnaires, smart search, property filtering, listing exploration, and map-based discovery.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <h3>Scrum Master & Team Lead | GOIT Bootcamps</h3>
+        <div class="meta">03/2024 - 10/2024 | Ankara, Türkiye</div>
+        <ul>
+          <li>Led agile development teams during an 8-month intensive full-stack program.</li>
+          <li>Coordinated sprint goals, team collaboration, and delivery quality across 10+ comprehensive full-stack projects.</li>
+          <li>Supported code quality, planning discipline, and effective communication across project teams.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+      <div class="project-grid">
+        <div class="project">
+          <h3>B.O.T.S. - Based On True Stories</h3>
+          <div class="meta">2026 | Next.js, TypeScript, LangGraph, Google Gemini, Supabase, pgvector</div>
+          <p>AI-powered interactive party game that turns real Reddit stories into structured storytelling sessions with PullPush sourcing, Gemini story evaluation, breakpoint questions, final judgment voting, and Kick streaming chat integration.</p>
+        </div>
+        <div class="project">
+          <h3>Zoka</h3>
+          <div class="meta">2025 - Present | React Native, Firebase</div>
+          <p>Cross-platform multiplayer social deduction bluff game for iOS and Android, focused on room setup, player flow, game mode entry, and real-time multiplayer gameplay.</p>
+        </div>
+        <div class="project">
+          <h3>Remax Turkey Filtering & Management Platform</h3>
+          <div class="meta">2025 - 03/2026 | React, Node.js, Redis</div>
+          <p>Real estate filtering and management platform with smart search, questionnaire flows, property listings, map-based exploration, DevOps, and production deployment.</p>
+        </div>
+        <div class="project">
+          <h3>GOIT Bootcamps Full-Stack Projects</h3>
+          <div class="meta">03/2024 - 10/2024 | Full Stack</div>
+          <p>Completed 10+ full-stack projects in agile teams while coordinating sprint planning, delivery quality, and collaboration as Scrum Master & Team Lead.</p>
+        </div>
+        <div class="project">
+          <h3>DraftBetter - LoL Assistant</h3>
+          <div class="meta">Tailwind CSS, Product Design</div>
+          <p>Desktop-style assistant interface concept for champion recommendations, draft analysis, team state, and AI-assisted pick/ban decisions.</p>
+        </div>
+        <div class="project">
+          <h3>PulseSync</h3>
+          <div class="meta">Mobile UI, Activity Tracking</div>
+          <p>Mobile fitness and heart-rate tracking interface concept with workout summaries, live activity metrics, heart-rate views, and compact navigation.</p>
+        </div>
+        <div class="project">
+          <h3>Sümbül Bahçe Kooperatif</h3>
+          <div class="meta">Web App, Dashboard, Landing Page</div>
+          <p>Cooperative management concept with public landing pages, member flows, financial summaries, production tracking, and admin dashboard views.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <h3>Ufuk University</h3>
+        <div class="meta">Associate Degree in Computer Programming | 02/2022 - 03/2024</div>
+      </div>
+      <div class="item">
+        <h3>Ankara Yıldırım Beyazıt University</h3>
+        <div class="meta">Associate Degree in Computer Programming | 09/2021 - 02/2022</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <div class="languages">
+        <div><strong>Turkish:</strong> Native / Bilingual</div>
+        <div><strong>English:</strong> Professional working proficiency</div>
+      </div>
+      <div class="note">Phone number and live portfolio URL were not included because they are not listed on the portfolio website.</div>
+    </section>
+  </main>
+</body>
+</html>
