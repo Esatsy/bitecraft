@@ -159,7 +159,7 @@ final class CVPDF {
     }
 
     private func drawSummary() {
-        let text = "Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in Next.js, React, React Native, Node.js, Redis, Firebase, Supabase, C#, and ASP.NET, with ownership across frontend, backend, infrastructure, deployment, and production launch. Uses AI-assisted workflows, coding agents, LangGraph, agentic coding, and MCP while validating generated code through secure coding principles, architecture review, and production-focused engineering practices."
+        let text = "Full Stack Engineer with 4+ years of software development experience building end-to-end web, iOS, and Android products through BiteCraft. Experienced in Next.js, React, React Native, Node.js, Redis, Firebase, Supabase, C#, and ASP.NET, with ownership across frontend, backend, infrastructure, deployment, and production launch. Uses AI-assisted workflows, coding agents, LangGraph, agentic coding, and MCP while validating generated code through architecture review and production-focused engineering practices. Applies cryptography fundamentals including RSA, AES, hashing, X.509 standards, and secure handshake protocols while following OWASP security guidelines."
         let bodyAttrs = attrs(size: 9.6, color: ink, lineSpacing: 1.4)
         ensureSpace(measure(text, width: contentWidth, attributes: bodyAttrs) + 8)
         y += draw(text, x: margin, y: y, width: contentWidth, attributes: bodyAttrs) + 3
@@ -172,7 +172,7 @@ final class CVPDF {
             ("Backend", "Node.js, C#, ASP.NET, Redis, Firebase, Supabase, pgvector, RESTful API Design"),
             ("Infrastructure", "DevOps, Server Configuration, End-to-End Deployment, Production Launch"),
             ("AI Development", "LangGraph, LangChain, LLM API Integration, Agentic Coding, AI IDE Workflows, MCP"),
-            ("Security", "Secure AI-Assisted Coding, AI Output Validation, Basic Cryptography Principles"),
+            ("Security", "OWASP Security Guidelines, Cryptography (RSA, AES, Hashing), X.509 Standards, Secure Handshake Protocols"),
             ("Ways of Working", "Agile, Scrum, Sprint Planning, Team Leadership")
         ]
 

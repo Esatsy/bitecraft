@@ -10,7 +10,7 @@ Twitter/X: [twitter.com/Esatsy](https://twitter.com/Esatsy)
 
 ## Professional Summary
 
-Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in React, React Native, Node.js, Redis, Firebase, C#, and ASP.NET, with hands-on ownership across frontend, backend, infrastructure, deployment, and production launch. Uses modern AI-assisted development workflows, agentic coding, and MCP to accelerate delivery while validating generated code through secure coding principles, architecture review, and production-focused engineering practices.
+Full Stack Engineer with 4+ years of software development experience building end-to-end web, iOS, and Android products through BiteCraft. Experienced in React, React Native, Node.js, Redis, Firebase, Supabase, C#, and ASP.NET, with hands-on ownership across frontend, backend, infrastructure, deployment, and production launch. Uses modern AI-assisted development workflows, agentic coding, and MCP to accelerate delivery while validating generated code through architecture review and production-focused engineering practices. Applies cryptography fundamentals including RSA, AES, hashing, X.509 standards, and secure handshake protocols while following OWASP security guidelines to mitigate vulnerabilities.
 
 ## Core Skills
 
@@ -92,7 +92,7 @@ Sustainable cooperative management concept with public landing pages, member flo
 
 **Frontend:** Next.js, React, React Native, TypeScript, Swift, Tailwind CSS, UI/UX Implementation  
 **Backend & Databases:** Node.js, C#, ASP.NET, Redis, Firebase, Supabase, pgvector, RESTful API Design  
-**Infrastructure & Security:** DevOps, End-to-End Deployment, Secure AI-Assisted Coding, Basic Cryptography Principles  
+**Infrastructure & Security:** DevOps, End-to-End Deployment, OWASP Security Guidelines, Cryptography (RSA, AES, Hashing), X.509 Standards, Secure Handshake Protocols  
 **AI & Development Tools:** LangGraph, LangChain, LLM API Integration, Agentic Coding, Vibe Coding, AI IDE Workflows, Model Context Protocol (MCP)  
 **Ways of Working:** Agile, Scrum, Sprint Planning, Team Leadership  
 
