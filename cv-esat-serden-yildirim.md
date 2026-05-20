@@ -10,7 +10,7 @@ Twitter/X: [twitter.com/Esatsy](https://twitter.com/Esatsy)
 
 ## Professional Summary
 
-Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in React, React Native, Node.js, Redis, Firebase, C#, and ASP.NET, with hands-on ownership across frontend, backend, infrastructure, deployment, and production launch. Uses modern AI-assisted development workflows with Cursor, Claude, agentic coding, and MCP to accelerate delivery while validating generated code through secure coding principles, architecture review, and production-focused engineering practices.
+Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in React, React Native, Node.js, Redis, Firebase, C#, and ASP.NET, with hands-on ownership across frontend, backend, infrastructure, deployment, and production launch. Uses modern AI-assisted development workflows, agentic coding, and MCP to accelerate delivery while validating generated code through secure coding principles, architecture review, and production-focused engineering practices.
 
 ## Core Skills
 
@@ -19,7 +19,7 @@ Full Stack Engineer building end-to-end web, iOS, and Android products through B
 - Node.js, Redis, Firebase, Supabase, C#, and ASP.NET backend development
 - RESTful API design, system architecture, and database integrations
 - DevOps, server configuration, and production deployment
-- AI-assisted development with Cursor, Claude, Google Gemini, LangGraph, agentic coding, and MCP
+- AI-assisted development with coding agents, AI IDE workflows, LangGraph, agentic coding, and MCP
 - Secure coding practices and validation of AI-generated code
 - Agile teamwork, Scrum Master responsibilities, and sprint delivery
 
@@ -31,7 +31,7 @@ Full Stack Engineer building end-to-end web, iOS, and Android products through B
 - Deliver web, iOS, and Android products independently through BiteCraft, owning product development from initial concept to deployment.
 - Built **B.O.T.S. - Based On True Stories**, an AI-powered interactive party game that converts real Reddit stories into structured storytelling sessions with LangGraph, Google Gemini, Supabase, pgvector, and Kick chat integration.
 - Build **Zoka**, a cross-platform multiplayer social deduction bluff game for iOS and Android, using React Native and Firebase.
-- Apply Cursor, Claude, and agentic coding workflows to accelerate development by 50%+ while reviewing and validating AI-generated code for security, maintainability, and architecture fit.
+- Apply AI IDE and agentic coding workflows to accelerate development by 50%+ while reviewing and validating AI-generated code for security, maintainability, and architecture fit.
 - Own full-stack implementation, technical decision-making, infrastructure setup, deployment, and ongoing product iteration.
 
 ### Full Stack Developer | BiteCraft - Remax Turkey
@@ -93,7 +93,7 @@ Sustainable cooperative management concept with public landing pages, member flo
 **Frontend:** Next.js, React, React Native, TypeScript, Swift, Tailwind CSS, UI/UX Implementation  
 **Backend & Databases:** Node.js, C#, ASP.NET, Redis, Firebase, Supabase, pgvector, RESTful API Design  
 **Infrastructure & Security:** DevOps, End-to-End Deployment, Secure AI-Assisted Coding, Basic Cryptography Principles  
-**AI & Development Tools:** LangGraph, LangChain, Google Gemini API, Agentic Coding, Vibe Coding, Cursor, Claude 4.5, Model Context Protocol (MCP)  
+**AI & Development Tools:** LangGraph, LangChain, LLM API Integration, Agentic Coding, Vibe Coding, AI IDE Workflows, Model Context Protocol (MCP)  
 **Ways of Working:** Agile, Scrum, Sprint Planning, Team Leadership  
 
 ## Education

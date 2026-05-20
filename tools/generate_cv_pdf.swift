@@ -159,7 +159,7 @@ final class CVPDF {
     }
 
     private func drawSummary() {
-        let text = "Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in Next.js, React, React Native, Node.js, Redis, Firebase, Supabase, C#, and ASP.NET, with ownership across frontend, backend, infrastructure, deployment, and production launch. Uses AI-assisted workflows with Cursor, Claude, Google Gemini, LangGraph, agentic coding, and MCP while validating generated code through secure coding principles, architecture review, and production-focused engineering practices."
+        let text = "Full Stack Engineer building end-to-end web, iOS, and Android products through BiteCraft. Experienced in Next.js, React, React Native, Node.js, Redis, Firebase, Supabase, C#, and ASP.NET, with ownership across frontend, backend, infrastructure, deployment, and production launch. Uses AI-assisted workflows, coding agents, LangGraph, agentic coding, and MCP while validating generated code through secure coding principles, architecture review, and production-focused engineering practices."
         let bodyAttrs = attrs(size: 9.6, color: ink, lineSpacing: 1.4)
         ensureSpace(measure(text, width: contentWidth, attributes: bodyAttrs) + 8)
         y += draw(text, x: margin, y: y, width: contentWidth, attributes: bodyAttrs) + 3
@@ -171,7 +171,7 @@ final class CVPDF {
             ("Frontend", "Next.js, React, React Native, TypeScript, Swift, Tailwind CSS, UI/UX Implementation"),
             ("Backend", "Node.js, C#, ASP.NET, Redis, Firebase, Supabase, pgvector, RESTful API Design"),
             ("Infrastructure", "DevOps, Server Configuration, End-to-End Deployment, Production Launch"),
-            ("AI Development", "LangGraph, LangChain, Google Gemini API, Agentic Coding, Cursor, Claude 4.5, MCP"),
+            ("AI Development", "LangGraph, LangChain, LLM API Integration, Agentic Coding, AI IDE Workflows, MCP"),
             ("Security", "Secure AI-Assisted Coding, AI Output Validation, Basic Cryptography Principles"),
             ("Ways of Working", "Agile, Scrum, Sprint Planning, Team Leadership")
         ]
@@ -197,7 +197,7 @@ final class CVPDF {
                     "Deliver web, iOS, and Android products independently through BiteCraft, owning development from concept to deployment.",
                     "Built B.O.T.S. - Based On True Stories, an AI-powered party game that converts real Reddit stories into structured gameplay with LangGraph, Google Gemini, Supabase, pgvector, and Kick chat integration.",
                     "Build Zoka, a cross-platform multiplayer social deduction bluff game for iOS and Android, using React Native and Firebase.",
-                    "Apply Cursor, Claude, and agentic coding workflows to accelerate development by 50%+ while validating AI-generated code for security, maintainability, and architecture fit.",
+                    "Apply AI IDE and agentic coding workflows to accelerate development by 50%+ while validating AI-generated code for security, maintainability, and architecture fit.",
                     "Own full-stack implementation, technical decisions, infrastructure setup, deployment, and product iteration."
                 ]
             ),
